@@ -55,7 +55,7 @@ def is_valid(board, number, position):
     return True
 
 
-def solver(board):
+def solve(board):
     empty_slot = find_empty(board)
     if not empty_slot:
         return True
@@ -64,11 +64,11 @@ def solver(board):
         for i in range(1, size + 1):
             if is_valid(board, i, (row, col)):
                 board[row][col] = i
-                if solver(board):
+                if solve(board):
                     return True
                 board[row][col] = 0
         return False
 
 
-solver(sudoku_board)
-print_sudoku_board(sudoku_board)
+#solve(sudoku_board)
+#print_sudoku_board(sudoku_board)
